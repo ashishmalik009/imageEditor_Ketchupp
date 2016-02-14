@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZJF-GR-RVN">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Crop Delegate-->
+        <scene sceneID="Sfl-8X-jQh">
+            <objects>
+                <viewController id="ar7-Ps-7Px" customClass="ViewController" customModule="Image_Editor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="obP-6F-2sk"/>
+                        <viewControllerLayoutGuide type="bottom" id="pZv-fd-AiA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zu2-ZZ-dpE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdg-bg-HPa" customClass="CroppableImageView" customModule="Image_Editor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="486"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="cropDelegate" destination="ar7-Ps-7Px" id="aD1-SY-sGM"/>
+                                </connections>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1F-6n-jaF" userLabel="whiteView">
+                                <rect key="frame" x="0.0" y="64" width="600" height="486"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gl-72-0tI" userLabel="Buttons view">
+                                <rect key="frame" x="185" y="560" width="230" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZK-zH-t6k">
+                                        <rect key="frame" x="78" y="0.0" width="90" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="MWo-Sz-Ykp"/>
+                                            <constraint firstAttribute="width" constant="90" id="clx-e2-Ter"/>
+                                        </constraints>
+                                        <state key="normal" title="Select image">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleSelectImgButton:" destination="ar7-Ps-7Px" eventType="touchUpInside" id="eRq-xY-snP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="tCA-3I-Xrv"/>
+                                    <constraint firstAttribute="width" constant="230" id="tMZ-uU-0Wn"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rax-27-CTC">
+                                <rect key="frame" x="129" y="558" width="90" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="Ekz-3e-pfw"/>
+                                    <constraint firstAttribute="height" constant="30" id="IiA-3m-2HM"/>
+                                </constraints>
+                                <state key="normal" title="Crop image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleCropButton:" destination="ar7-Ps-7Px" eventType="touchUpInside" id="NP8-s9-OSd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35E-w7-In1">
+                                <rect key="frame" x="386" y="560" width="91" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ahJ-na-skU"/>
+                                    <constraint firstAttribute="width" constant="91" id="faV-ml-gW1"/>
+                                </constraints>
+                                <state key="normal" title="Rotate Image"/>
+                                <connections>
+                                    <action selector="rotateImage:" destination="ar7-Ps-7Px" eventType="touchUpInside" id="nCi-gD-pAa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="X1F-6n-jaF" firstAttribute="top" secondItem="hdg-bg-HPa" secondAttribute="top" id="2N0-nt-Oc4"/>
+                            <constraint firstItem="35E-w7-In1" firstAttribute="leading" secondItem="sZK-zH-t6k" secondAttribute="trailing" constant="33" id="4ZU-Zk-nVi"/>
+                            <constraint firstItem="rax-27-CTC" firstAttribute="top" secondItem="X1F-6n-jaF" secondAttribute="bottom" constant="8" symbolic="YES" id="5Or-Nf-GfN"/>
+                            <constraint firstItem="X1F-6n-jaF" firstAttribute="trailing" secondItem="hdg-bg-HPa" secondAttribute="trailing" id="ASA-il-1Hu"/>
+                            <constraint firstItem="pZv-fd-AiA" firstAttribute="top" secondItem="sZK-zH-t6k" secondAttribute="bottom" constant="10" id="Nn4-Ts-xff"/>
+                            <constraint firstItem="35E-w7-In1" firstAttribute="top" secondItem="X1F-6n-jaF" secondAttribute="bottom" constant="10" id="OJF-US-yX5"/>
+                            <constraint firstItem="X1F-6n-jaF" firstAttribute="bottom" secondItem="hdg-bg-HPa" secondAttribute="bottom" id="SmK-VF-piW"/>
+                            <constraint firstAttribute="bottom" secondItem="hdg-bg-HPa" secondAttribute="bottom" id="ZeQ-GW-BAw"/>
+                            <constraint firstItem="hdg-bg-HPa" firstAttribute="leading" secondItem="Zu2-ZZ-dpE" secondAttribute="leading" id="cmZ-yw-AlE"/>
+                            <constraint firstItem="5gl-72-0tI" firstAttribute="top" secondItem="hdg-bg-HPa" secondAttribute="bottom" constant="10" id="cpG-Vd-Nda"/>
+                            <constraint firstItem="X1F-6n-jaF" firstAttribute="leading" secondItem="hdg-bg-HPa" secondAttribute="leading" id="iKL-pL-0m0"/>
+                            <constraint firstItem="pZv-fd-AiA" firstAttribute="top" secondItem="35E-w7-In1" secondAttribute="bottom" constant="10" id="m92-Y2-x1N"/>
+                            <constraint firstItem="sZK-zH-t6k" firstAttribute="leading" secondItem="rax-27-CTC" secondAttribute="trailing" constant="44" id="mol-wD-Ua3"/>
+                            <constraint firstItem="sZK-zH-t6k" firstAttribute="top" secondItem="X1F-6n-jaF" secondAttribute="bottom" constant="10" id="sEh-9P-FFD"/>
+                            <constraint firstAttribute="trailing" secondItem="hdg-bg-HPa" secondAttribute="trailing" id="txa-0h-dZa"/>
+                            <constraint firstItem="pZv-fd-AiA" firstAttribute="top" secondItem="5gl-72-0tI" secondAttribute="bottom" constant="10" id="uLJ-Vh-00u"/>
+                            <constraint firstAttribute="centerX" secondItem="5gl-72-0tI" secondAttribute="centerX" id="w0z-GO-ygb"/>
+                            <constraint firstItem="hdg-bg-HPa" firstAttribute="top" secondItem="obP-6F-2sk" secondAttribute="bottom" id="xeK-9i-kV1"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZeQ-GW-BAw"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="VfU-Tv-dfv">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="sxK-OJ-0NV">
+                            <connections>
+                                <action selector="saveImageToGallery:" destination="ar7-Ps-7Px" id="VhE-uk-DRl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cropButton" destination="rax-27-CTC" id="33t-Wa-byL"/>
+                        <outlet property="cropView" destination="hdg-bg-HPa" id="xIZ-Ma-yaf"/>
+                        <outlet property="whiteView" destination="X1F-6n-jaF" id="n0T-qd-WXj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ik-WM-mwl" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1172" y="267"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nMN-Y6-j7V">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZJF-GR-RVN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="unu-7d-kAh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ar7-Ps-7Px" kind="relationship" relationship="rootViewController" id="Z0k-qX-32K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ev-po-hdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="360" y="267"/>
+        </scene>
+    </scenes>
+</document>
